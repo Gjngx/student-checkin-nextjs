@@ -5,9 +5,9 @@ import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { mutate } from "swr"
-import { CLASS_API_URL, TEACHERS_API_URL } from '@/constants';
-import CreateRoom from '@/components/admin/rooms/room.create'
-import UpdateRoom from '@/components/admin/rooms/room.update'
+import { CLASS_API_URL } from '@/constants';
+import CreateClass from '@/components/admin/aclasses/class.create'
+import UpdateClass from '@/components/admin/aclasses/class.update'
 
 interface IProps {
     classes: IClass[];
@@ -43,8 +43,6 @@ function ClassTable(progs: IProps) {
         }
     }
 
-    
-   
 
     return (
         <div>
@@ -72,7 +70,7 @@ function ClassTable(progs: IProps) {
                                     <Link href={`/admin/aclasses/${item.aclassID}`} className='btn btn-info mx-1'>Chi tiết</Link>
                                     <Button variant='warning' className='mx-1'
                                         onClick={() => {
-                                            // setAClass(item);
+                                            setAClass(item);
                                             setShowModalUpdate(true);
                                         }}
                                     >Cập nhật</Button>
@@ -85,16 +83,16 @@ function ClassTable(progs: IProps) {
                 </tbody>
             </Table>
 
-            {/* <CreateRoom
+            <CreateClass
                 showModalCreate={showModalCreate}
                 setShowModalCreate={setShowModalCreate}
             />
-            <UpdateRoom
-                room={room}
-                setRoom={setRoom}
+            <UpdateClass
+                aclass={aclass}
+                setAClass={setAClass}
                 showModalUpdate={showModalUpdate}
                 setShowModalUpdate={setShowModalUpdate}
-            /> */}
+            /> 
         </div>
     )
 }

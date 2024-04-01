@@ -12,7 +12,7 @@ function ClassList() {
     const [showModalCreate, setShowModalCreate] = useState<boolean>(false);
     const [pageIndex, setPageIndex] = useState(0);
     const [totalRows, setTotalRows] = useState(0);
-    const ROWS_PER_PAGE = 1;
+    const ROWS_PER_PAGE = 10;
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredData, setFilteredData] = useState<IClass[]>([]);
